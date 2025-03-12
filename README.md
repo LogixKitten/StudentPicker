@@ -9,7 +9,7 @@ Student Picker is a web-based tool designed to help educators manage classes and
 - **Theme Toggle**: Switch between light and dark mode.
 
 ## 🌍 Live Demo
-- 🚧 Deployment Link Coming Soon 🚧
+- https://studentpicker.up.railway.app/
   
 ## 📜 License
 - This project is licensed under the MIT License.
