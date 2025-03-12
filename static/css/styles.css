@@ -34,6 +34,11 @@
     --selected-text: #5CFF00;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -41,6 +46,8 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* General Button Styling */
@@ -181,23 +188,17 @@ nav ul li a {
 
 /* Ensure the footer stays at the bottom */
 footer {
-    width: 100%;
     background: var(--nav-bg);
     color: var(--nav-text);
     text-align: center;
     padding: 10px 0;
     height: 60px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    
-    /* Push footer to bottom using calc() */
-    top: calc(100vh - 60px);
+    width: 100%;
 }
 
 
 .container {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
