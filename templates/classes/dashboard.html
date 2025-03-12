@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ current_user.username }}</h2>
+<div class="class-grid">
+    {% for class_ in classes %}
+        <div class="class-item">
+            <!-- Class View Button -->
+            <button class="class-btn" onclick="window.location.href=`{{ url_for('class_view', class_id=class_.id) }}`">
+                {{ class_.name }}
+            </button>
+
+            <!-- Edit Button -->
+            <button class="edit-btn" data-id="{{ class_.id }}" onclick="editClass('{{ class_.id }}')">✏️</button>
+
+            <!-- Delete Button -->
+            <button class="delete-btn" data-id="{{ class_.id }}" onclick="deleteClass('{{ class_.id }}')">❌</button>
+        </div>
+    {% endfor %}
+    <button id="add-class-btn">+</button>
+</div>
+
+<!-- Add Class Modal -->
+<div id="class-modal" class="modal">
+    <div class="modal-content">
+        <h3>Create a New Class</h3>
+        <label>Class Name:</label>
+        <input type="text" id="class-name" required>
+
+        <h4>Add Students</h4>
+        <button type="button" id="upload-file-btn">Upload File</button>
+        <button type="button" id="manual-entry-btn">Add Manually</button>
+
+        <!-- Student List Preview -->
+        <div id="student-list-preview"></div>
+
+        <button type="submit" id="create-class-btn">Create Class</button>
+        <button class="close-modal">Close</button>
+    </div>
+</div>
+
+<!-- Upload Students Modal -->
+<div id="upload-student-modal" class="modal">
+    <div class="modal-content">
+        <h3>Upload Student List</h3>
+        <input type="file" id="student-file" accept=".txt">
+        <button id="upload-student-btn">Upload</button>
+        <button class="close-modal">Close</button>
+    </div>
+</div>
+
+<!-- Manual Entry Modal -->
+<div id="manual-student-modal" class="modal">
+    <div class="modal-content">
+        <h3>Add Students Manually</h3>
+        <div id="manual-student-list">
+            <input type="text" class="manual-student" placeholder="Last Name, First Name">
+        </div>
+        <button id="add-manual-student">+ Add Student</button>
+        <button class="close-modal">Close</button>
+    </div>
+</div>
+
+<!-- Edit Class Modal -->
+<div id="edit-class-modal" class="modal">
+    <div class="modal-content">
+        <h3>Edit Class</h3>
+        <label>Class Name:</label>
+        <input type="text" id="edit-class-name">
+
+        <h4>Manage Students</h4>
+        <div id="edit-student-list">
+            <!-- Student list will be dynamically loaded here -->
+        </div>
+
+        <!-- Add New Student Manually -->
+        <input type="text" id="new-student" placeholder="Last Name, First Name">
+        <button id="add-student-btn">+ Add Student</button>
+
+        <button id="save-edit-class">Save Changes</button>
+        <button class="close-modal">Close</button>
+    </div>
+</div>
+
+{% endblock %}

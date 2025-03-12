@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Class Details{% endblock %}
+
+{% block content %}
+<div class="class-container">
+    <h2>{{ class_.name }}</h2>
+    
+    <div class="roster">
+        <h3>Student Roster</h3>
+        <div class="student-list">
+            {% for student in students %}
+                <div class="student-entry">{{ student.first_name }} {{ student.last_name }}</div>
+            {% endfor %}
+        </div>        
+    </div>
+    <button id="pick-student-btn">Pick a Student</button>
+    <p id="selected-student"></p>
+</div>
+
+<script>
+    let pickedHistory = [];  // Track previous selections
+
+    document.getElementById("pick-student-btn").addEventListener("click", function () {
+        fetch("{{ url_for('pick_student', class_id=class_.id) }}")
+        .then(response => response.json())
+        .then(data => {
+            if (!data.students || data.students.length === 0) {
+                document.getElementById("selected-student").textContent = "No students available.";
+                return;
+            }
+
+            let students = data.students;
+
+            // Reset history if all students have been picked at least once
+            if (pickedHistory.length >= students.length) {
+                pickedHistory = [];
+            }
+
+            // Filter students that haven’t been picked recently
+            let availableStudents = students.filter(student => !pickedHistory.includes(student));
+
+            if (availableStudents.length === 0) {
+                availableStudents = students; // Reset if all have been picked once
+            }
+
+            // Pick a random student from available ones
+            let randomIndex = Math.floor(Math.random() * availableStudents.length);
+            let pickedStudent = availableStudents[randomIndex];
+
+            // Update history
+            pickedHistory.push(pickedStudent);
+
+            document.getElementById("selected-student").textContent = `Selected: ${pickedStudent}`;
+        });
+    });
+</script>
+{% endblock %}

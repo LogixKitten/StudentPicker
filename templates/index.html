@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Student Picker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Student Picker</h1>
+    <p>
+        Student Picker is a web-based tool that has been designed to help educators 
+        manage classes and randomly select students efficiently and fairly!
+    </p>
+
+    <div class="button-container">
+        <button onclick="location.href=`{{ url_for('register') }}`" class="btn primary">Register Now!</button>
+        <button onclick="location.href=`{{ url_for('login') }}`" class="btn">Login</button>
+    </div>    
+</div>
+{% endblock %}

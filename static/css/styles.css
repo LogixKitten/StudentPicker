@@ -1,0 +1,414 @@
+/* Root Variables for Theming */
+:root {
+    --bg-color: #7997BD;    
+    --text-color: #FFF;
+    --nav-bg: #5360AE;
+    --nav-text: #FFF;
+    --btn-primary: #263999;
+    --btn-primary-hover: #496cd5;
+    --btn-danger: #991818;
+    --btn-danger-hover: #CE3A3A;
+    --btn-warning: #3A8A2E;
+    --btn-warning-hover: #76db32;
+    --card-bg: #6388B7;
+    --input-bg: #4047B0;
+    --border-color: #A2B8EC;
+    --selected-text: #5CFF00;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --bg-color: #1e2237;
+    --text-color: #C4C4C4;
+    --nav-bg: #0d132f;
+    --nav-text: #C4C4C4;
+    --btn-primary: #192562;
+    --btn-primary-hover: #2e4382;
+    --btn-danger: #5b0e0e;
+    --btn-danger-hover: #882626;
+    --btn-warning: #1F4D18;
+    --btn-warning-hover: #44821b;
+    --card-bg: #0d1e35;
+    --input-bg: #13174d;
+    --border-color: #0d1e44;
+    --selected-text: #5CFF00;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* General Button Styling */
+button {
+    background-color: var(--btn-primary);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+button:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+/* Primary Button */
+button.primary {
+    background-color: var(--btn-primary);
+}
+
+button.primary:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+/* Danger (Delete) Button */
+button.danger {
+    background-color: var(--btn-danger);
+    color: white;
+}
+
+button.danger:hover {
+    background-color: var(--btn-danger-hover);
+}
+
+/* Warning (Caution) Button */
+button.warning {
+    background-color: var(--btn-warning);
+    color: var(--text-color);
+}
+
+button.warning:hover {
+    background-color: var(--btn-warning-hover);
+}
+
+/* Small Icon Buttons */
+button.icon {
+    padding: 5px 8px;
+    font-size: 0.9rem;
+}
+
+/* Specific Button Styles */
+#add-student-btn,
+#add-class-btn {
+    background-color: var(--btn-primary);
+}
+
+#add-student-btn:hover,
+#add-class-btn:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+#save-edit-class {
+    background-color: var(--btn-warning);
+}
+
+#save-edit-class:hover {
+    background-color: var(--btn-warning-hover);
+}
+
+#create-class-btn {
+    background-color: var(--btn-warning);
+}
+
+#create-class-btn:hover {
+    background-color: var(--btn-warning-hover);
+}
+
+.remove-student-btn {
+    background-color: var(--btn-danger);
+    color: white;
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    border-radius: 3px;
+}
+
+.remove-student-btn:hover {
+    background-color: var(--btn-danger-hover);
+}
+
+#pick-student-btn {
+    background-color: var(--btn-warning);
+}
+
+#pick-student-btn:hover {
+    background-color: var(--btn-warning-hover);
+}
+
+/* Form Submission Buttons */
+button[type="submit"] {
+    background-color: var(--btn-primary);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+/* Navigation */
+nav {
+    background: var(--nav-bg);
+    padding: 15px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--nav-text);
+    font-weight: bold;
+}
+
+/* Ensure the footer stays at the bottom */
+footer {
+    width: 100%;
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    text-align: center;
+    padding: 10px 0;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    /* Push footer to bottom using calc() */
+    top: calc(100vh - 60px);
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;    
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Theme Toggle (Sun/Moon Icon) */
+#theme-toggle {
+    font-size: 25px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: absolute;
+    right: 20px;
+    top: 3px;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.2);
+}
+
+/* Forms */
+form {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    max-width: 65%;
+    margin: 40px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.roster {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    margin: auto auto 20px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    display: block;
+}
+
+/* Class Grid */
+.class-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 12px;
+    margin: 8px auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 220px;
+}
+
+/* Updated Class Button Layout */
+.class-btn {
+    width: 100%;
+    text-align: center;
+    background-color: var(--btn-primary);
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.class-btn:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+/* Fix Class Button Stacking */
+.class-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Restore Edit and Delete Button Colors */
+.edit-btn {
+    width: 48%;
+    background-color: var(--btn-warning);
+    border: none;
+    padding: 8px;
+    color: black;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: var(--btn-warning-hover);
+}
+
+.delete-btn {
+    width: 48%;
+    background-color: var(--btn-danger);
+    border: none;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: var(--btn-danger-hover);
+}
+
+/* Student List */
+ul.student-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px auto;
+    max-width: 400px;
+    text-align: left;
+}
+
+ul.student-list li {
+    padding: 10px;
+    background: var(--card-bg);
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+/* Selected Student */
+#selected-student {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--selected-text);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* === MODAL STYLING === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 10%;
+    max-height: 500px;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    border: 1px solid var(--border-color);    
+}
+
+.modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-body {
+    padding: 10px;
+}
+
+.modal-footer {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.close-modal {
+    background: var(--btn-danger);
+    border: none;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    background: var(--btn-danger-hover);
+}
+
+/* Scrollable Modal Content */
+.modal-content.scrollable {
+    max-height: 70vh;
+    overflow-y: auto;
+}
