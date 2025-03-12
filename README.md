@@ -7,11 +7,11 @@ Student Picker is a web-based tool designed to help educators manage classes and
 - **Class Management**: Create, edit, and delete classes.
 - **Student Selection**: Randomly pick students in a fair rotation.
 - **Theme Toggle**: Switch between light and dark mode.
-- 
-🌍 Live Demo
 
-🚧 Deployment Link Coming Soon 🚧
-📜 License
-
-This project is licensed under the MIT License.
-✨ Created by Alice "LogixKitten" Allen © 2025
+## 🌍 Live Demo
+- 🚧 Deployment Link Coming Soon 🚧
+  
+## 📜 License
+- This project is licensed under the MIT License.
+  
+## ✨ Created by Alice "LogixKitten" Allen © 2025
